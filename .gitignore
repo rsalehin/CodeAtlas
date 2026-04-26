@@ -34,3 +34,6 @@ TASK_DIR/
 # OS
 .DS_Store
 Thumbs.db
+
+# Personal files
+INTERVIEW.md
