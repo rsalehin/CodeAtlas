@@ -1,0 +1,42 @@
+{
+  "nodes": [
+    {"id": "calculator/operations.py::function:add", "label": "add", "source_file": "calculator/operations.py", "source_location": "L4"},
+    {"id": "calculator/operations.py::function:subtract", "label": "subtract", "source_file": "calculator/operations.py", "source_location": "L8"},
+    {"id": "calculator/operations.py::function:multiply", "label": "multiply", "source_file": "calculator/operations.py", "source_location": "L12"},
+    {"id": "calculator/operations.py::function:divide", "label": "divide", "source_file": "calculator/operations.py", "source_location": "L16"},
+    {"id": "utils/logger.py::class:Logger", "label": "Logger", "source_file": "utils/logger.py", "source_location": "L4"},
+    {"id": "utils/config.py::class:Config", "label": "Config", "source_file": "utils/config.py", "source_location": "L4"},
+    {"id": "main.py", "label": "main.py", "source_file": "main.py", "source_location": "L1"},
+    {"id": "README.md", "label": "README.md", "source_file": "README.md", "source_location": "L1"},
+    {"id": "calculator/operations.py", "label": "calculator/operations.py", "source_file": "calculator/operations.py", "source_location": "L1"},
+    {"id": "utils/logger.py", "label": "utils/logger.py", "source_file": "utils/logger.py", "source_location": "L1"},
+    {"id": "utils/config.py", "label": "utils/config.py", "source_file": "utils/config.py", "source_location": "L1"}
+  ],
+  "edges": [
+    {"source": "main.py", "target": "calculator/operations.py::function:add", "relation": "imports", "confidence": "EXTRACTED"},
+    {"source": "main.py", "target": "calculator/operations.py::function:subtract", "relation": "imports", "confidence": "EXTRACTED"},
+    {"source": "main.py", "target": "utils/logger.py::class:Logger", "relation": "imports", "confidence": "EXTRACTED"},
+    {"source": "main.py", "target": "utils/config.py::class:Config", "relation": "imports", "confidence": "EXTRACTED"},
+
+    {"source": "calculator/operations.py::function:add", "target": "calculator/operations.py::function:subtract", "relation": "coexists_in", "confidence": "EXTRACTED"},
+    {"source": "calculator/operations.py::function:add", "target": "calculator/operations.py::function:multiply", "relation": "coexists_in", "confidence": "EXTRACTED"},
+    {"source": "calculator/operations.py::function:subtract", "target": "calculator/operations.py::function:divide", "relation": "coexists_in", "confidence": "EXTRACTED"},
+    {"source": "calculator/operations.py::function:multiply", "target": "calculator/operations.py::function:divide", "relation": "coexists_in", "confidence": "EXTRACTED"},
+    {"source": "calculator/operations.py::function:add", "target": "calculator/operations.py", "relation": "defined_in", "confidence": "EXTRACTED"},
+    {"source": "calculator/operations.py::function:subtract", "target": "calculator/operations.py", "relation": "defined_in", "confidence": "EXTRACTED"},
+    {"source": "calculator/operations.py::function:multiply", "target": "calculator/operations.py", "relation": "defined_in", "confidence": "EXTRACTED"},
+    {"source": "calculator/operations.py::function:divide", "target": "calculator/operations.py", "relation": "defined_in", "confidence": "EXTRACTED"},
+
+    {"source": "utils/logger.py::class:Logger", "target": "utils/logger.py", "relation": "defined_in", "confidence": "EXTRACTED"},
+    {"source": "utils/config.py::class:Config", "target": "utils/config.py", "relation": "defined_in", "confidence": "EXTRACTED"},
+    {"source": "utils/logger.py::class:Logger", "target": "utils/config.py::class:Config", "relation": "uses", "confidence": "INFERRED", "confidence_score": 0.85, "evidence": "Logger may read config for log level"},
+    {"source": "utils/logger.py", "target": "utils/config.py", "relation": "paired_with", "confidence": "INFERRED", "confidence_score": 0.9, "evidence": "Both are core utilities"},
+
+    {"source": "calculator/operations.py::function:divide", "target": "utils/logger.py::class:Logger", "relation": "uses", "confidence": "INFERRED", "confidence_score": 0.70, "evidence": "Division by zero should log an error"},
+    {"source": "calculator/operations.py", "target": "utils/logger.py", "relation": "depends_on", "confidence": "INFERRED", "confidence_score": 0.70, "evidence": "Calculator may need logging for errors"},
+
+    {"source": "README.md", "target": "main.py", "relation": "documents", "confidence": "INFERRED", "confidence_score": 0.95, "evidence": "README describes entry point"},
+    {"source": "README.md", "target": "calculator/operations.py", "relation": "documents", "confidence": "INFERRED", "confidence_score": 0.90, "evidence": "README mentions arithmetic operations"},
+    {"source": "README.md", "target": "utils/logger.py", "relation": "documents", "confidence": "INFERRED", "confidence_score": 0.90, "evidence": "README describes Logger utility"}
+  ]
+}

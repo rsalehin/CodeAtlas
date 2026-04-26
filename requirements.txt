@@ -1,0 +1,8 @@
+﻿networkx>=3.0
+pyvis>=0.3
+graspologic>=3.4
+tree-sitter==0.21.3
+tree-sitter-languages==1.10.2
+anthropic>=0.34
+python-dotenv>=1.0
+flask>=3.0

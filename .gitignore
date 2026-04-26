@@ -1,0 +1,36 @@
+﻿# Virtual environment
+.venv/
+venv/
+
+# Python bytecode
+__pycache__/
+*.pyc
+*.pyo
+
+# Build / distribution
+dist/
+build/
+*.egg-info/
+
+# Environment variables (API keys)
+.env
+
+# Output directories
+output/
+output_*/
+graphify-out/
+
+# Temporary files
+*.tmp
+_temp/
+TASK_DIR/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
